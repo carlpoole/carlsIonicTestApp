@@ -1,9 +1,12 @@
 import React from 'react';
+import { Plugins } from "@capacitor/core";
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton } from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
 import './Tab2.css';
 
 const Tab2: React.FC = () => {
+  const { MyNativePlugin } = Plugins;
+
   return (
     <IonPage>
       <IonHeader>
@@ -19,7 +22,7 @@ const Tab2: React.FC = () => {
         </IonHeader>
 
         <div className="buttonSection">
-          <IonButton>Click Me</IonButton>
+          <IonButton onClick={() => MyNativePlugin.customCall({ message: "Hello from inside Ionic!" })}>Click Me</IonButton>
         </div>
         
       </IonContent>
